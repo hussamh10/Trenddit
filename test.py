@@ -12,6 +12,7 @@ def main():
 		filtered = Reddit.filter(posts, subreddit)
 
 		for p in filtered:
+			# prints tostring
 			print(p.toString())
 
 if __name__ == '__main__':
