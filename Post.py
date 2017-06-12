@@ -8,3 +8,6 @@ class Post:
 	def toString(self):
 		string = self.subreddit + "\n" + self.title + "\n" + self.link
 		return string
+
+	def getId(self):
+		return self.id

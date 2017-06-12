@@ -15,5 +15,3 @@ def main():
 			# prints tostring
 			print(p.toString())
 
-if __name__ == '__main__':
-	main()
