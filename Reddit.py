@@ -1,5 +1,5 @@
 from Post import Post
-import Google
+import Search_Google
 import praw
 
 authentication = open('authentication', 'r').readlines()
@@ -12,7 +12,8 @@ bot = praw.Reddit(user_agent='Alfred v0.1',
 
 
 def getSubreddit(r):
-	url = Google.getUrl(r, 'reddit.com', 1)
+	return bot.subreddit(r)
+	url = Search_Google.getUrl(r, 'reddit.com', 1)
 	url = url.split('/')
 	subreddit = url[-2]
 	return bot.subreddit(subreddit)
@@ -22,7 +23,7 @@ def getTopPosts(subreddit):
 	for post in subreddit.top('day'):
 		posts.append(post)
 		title = post.title
-		title = title.encode('cp65001')
+		title = title.encode('utf-8')
 
 	return posts[:5]
 
